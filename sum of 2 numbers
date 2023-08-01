@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+
+int main()
+
+        {
+
+            float a , b , sum;
+            cout<< "Enter the value of 2 numbers: "<< endl;
+            cin>>a;
+            cin>> b;
+            sum= a+ b ;
+            cout<< "The Sum is: "<< sum;
+        }
