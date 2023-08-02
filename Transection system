@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+#include <stack>
+
+using namespace std;
+
+struct Transaction {
+    string senderName;
+    string receiverName;
+    string transactionTime;
+    double amount;
+
+    Transaction(string sender, string receiver, string time, double amt)
+        : senderName(sender), receiverName(receiver), transactionTime(time), amount(amt) {}
+};
+
+struct Node {
+    Transaction transaction;
+    Node* next;
+
+    Node(Transaction trans) : transaction(trans), next(NULL) {}
+};
+
+class LinkedList {
+private:
+    Node* head;
+
+public:
+    LinkedList() : head(NULL) {}
+
+    void insert(Transaction trans) {
+        Node* newNode = new Node(trans);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    void display() {
+        Node* current = head;
+        while (current != NULL) {
+            cout << "Sender: " << current->transaction.senderName<<endl;
+            cout << " Receiver: " << current->transaction.receiverName<<endl;
+            cout << " Time: " << current->transaction.transactionTime << endl;
+            cout << " Amount: " << current->transaction.amount << endl;
+
+            current = current->next;
+        }
+    }
+};
+
+int main() {
+    stack<Transaction> transactionStack;
+    LinkedList transactionList;
+
+    int numTransactions;
+    cout << "Enter the number of transactions: ";
+    cin >> numTransactions;
+
+    for (int i = 0; i < numTransactions; ++i) {
+        string sender, receiver, time;
+        double amount;
+
+        cout << "Enter Sender Name: ";
+        cin >> sender;
+        cout << "Enter Receiver Name: ";
+        cin >> receiver;
+        cout << "Enter Transaction Time: ";
+        cin >> time;
+        cout << "Enter Amount: ";
+        cin >> amount;
+
+        transactionStack.push(Transaction(sender, receiver, time, amount));
+    }
+
+    while (!transactionStack.empty()) {
+        Transaction trans = transactionStack.top();
+        transactionList.insert(trans);
+        transactionStack.pop();
+    }
+
+    transactionList.display();
+
+    return 0;
+}
