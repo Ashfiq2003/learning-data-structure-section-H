@@ -1,0 +1,26 @@
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+void reverseDoublyLinkedList(Node*& head) {
+    Node* current = head;
+    Node* temp = nullptr;
+    while (current != nullptr) {
+        temp = current->prev;
+        current->prev = current->next;
+        current->next = temp;
+        current = current->prev;
+    }
+    if (temp != nullptr) {
+        head = temp->prev;
+    }
+}
+
+int main() {
+    Node* head = nullptr;
+    return 0;
+}
