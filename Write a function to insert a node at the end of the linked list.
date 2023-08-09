@@ -1,0 +1,20 @@
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+void insertAtBeginning(Node*& head, int data) {
+    Node* newNode = new Node;
+    newNode->data = data;
+    newNode->next = head;
+    head = newNode;
+}
+
+int main() {
+    Node* head = nullptr;
+    insertAtBeginning(head, 5);
+
+    return 0;
+}
