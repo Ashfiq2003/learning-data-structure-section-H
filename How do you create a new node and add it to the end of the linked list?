@@ -1,0 +1,15 @@
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+int main() {
+    Node* head = nullptr;
+    Node* newNode = new Node;
+    newNode->data = 42;
+    newNode->next = nullptr;
+    head = newNode;
+    return 0;
+}
