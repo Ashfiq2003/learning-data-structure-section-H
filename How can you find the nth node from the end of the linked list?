@@ -1,0 +1,22 @@
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+bool search(Node* head, int target) {
+    Node* current = head;
+    while (current != nullptr) {
+        if (current->data == target) {
+            return true;
+        }
+        current = current->next;
+    }
+    return false;
+}
+
+int main() {
+    Node* head = nullptr;    
+    return 0;
+}
