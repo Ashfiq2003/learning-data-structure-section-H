@@ -1,0 +1,31 @@
+#include <iostream>
+
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+};
+
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = new Node;
+    newNode->data = data;
+    newNode->next = nullptr;
+    if (head == nullptr) {
+        newNode->prev = nullptr;
+        head = newNode;
+        return;
+    }
+    Node* current = head;
+    while (current->next != nullptr) {
+        current = current->next;
+    }
+    current->next = newNode;
+    newNode->prev = current;
+}
+
+int main() {
+    Node* head = nullptr;
+    insertAtEnd(head, 5);
+    insertAtEnd(head, 10);
+    return 0;
+}
