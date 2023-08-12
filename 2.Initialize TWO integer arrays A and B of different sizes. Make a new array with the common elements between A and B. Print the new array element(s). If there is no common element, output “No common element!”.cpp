@@ -5,6 +5,9 @@ int main()
 int arr1[] ={1,4,6,3,6,9};
 int arr2[] ={5,3,7,1,2,6};
 
+
+                
+
 int size1= sizeof(arr1)/ sizeof(arr1[0]);
 int size2= sizeof(arr2)/ sizeof(arr2[0]);
 
