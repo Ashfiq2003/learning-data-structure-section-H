@@ -1,0 +1,21 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
+int main() {
+    stack<int> myStack;
+    myStack.push(10);
+    myStack.push(20);
+    myStack.push(30);
+
+    cout << "Stack size: " << myStack.size() << endl;
+    cout << "Top element: " << myStack.top() << endl;
+    int poppedItem = myStack.top();
+    myStack.pop();
+    cout << "Popped item: " << poppedItem << endl;
+
+    cout << "Is the stack empty? " << (myStack.empty() ? "Yes" : "No") << endl;
+
+    return 0;
+}
